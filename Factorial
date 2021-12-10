@@ -1,0 +1,48 @@
+package factorial;
+// By Ibrahim Mohamed Othman
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+public class Factorial 
+{
+
+    public static void main(String[] args) 
+    {
+        Scanner x = new Scanner(System.in);
+
+        String question = "";
+        while (!question.equalsIgnoreCase("stop")) 
+        {
+            long factorial = 1;
+            System.out.print("Please enter the number: ");
+            try 
+            {
+                int number = x.nextInt();
+                if (number < 21&&number >= 0) {
+                    for (int counter = 1; counter <= number; counter++) 
+                    {
+
+                        factorial = factorial * counter;
+
+                    }
+                    System.out.println("Factorial is =" + factorial);
+                } else if(number < 0)
+                {
+                    System.err.println("The number must be positive");
+                }
+                else 
+                {
+                    System.err.println("The number must be less than 21");
+                }
+            } catch (InputMismatchException e) 
+            {
+
+                System.err.println("Enter numbers only");
+                x.next();
+            }
+            System.out.println("Enter stop to stop , enter any thing else to continue ");
+            question = x.next();
+        }
+    }
+
+}
